@@ -31,6 +31,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build static portal
         run: pnpm exec vite build
+      - name: Configure GitHub Pages SPA fallback
+        run: cp dist/public/index.html dist/public/404.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
